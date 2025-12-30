@@ -1,0 +1,301 @@
+{
+    "name": "npm",
+    "dependencies": {
+        "@fortawesome/fontawesome-free": {
+            "version": "6.7.0",
+            "overridden": false
+        },
+        "@google/generative-ai": {
+            "version": "0.24.1",
+            "overridden": false
+        },
+        "@react-oauth/google": {
+            "version": "0.12.2",
+            "overridden": false
+        },
+        "@react-three/drei": {
+            "version": "10.7.7",
+            "overridden": false
+        },
+        "@react-three/fiber": {
+            "version": "9.4.2",
+            "overridden": false
+        },
+        "angular-cli-ghpages": {
+            "version": "2.0.3",
+            "overridden": false
+        },
+        "angular": {
+            "version": "1.8.3",
+            "overridden": false
+        },
+        "antd": {
+            "version": "5.26.4",
+            "overridden": false
+        },
+        "axios": {
+            "version": "1.10.0",
+            "overridden": false
+        },
+        "bcrypt": {
+            "version": "6.0.0",
+            "overridden": false
+        },
+        "body-parser": {
+            "version": "2.2.0",
+            "overridden": false
+        },
+        "bootstrap-icons": {
+            "version": "1.11.3",
+            "overridden": false
+        },
+        "bootstrap": {
+            "version": "5.3.3",
+            "overridden": false
+        },
+        "buffer": {
+            "version": "6.0.3",
+            "overridden": false
+        },
+        "chalk": {
+            "version": "5.4.1",
+            "overridden": false
+        },
+        "chart.js": {
+            "version": "4.5.0",
+            "overridden": false
+        },
+        "colors": {
+            "version": "1.4.0",
+            "overridden": false
+        },
+        "concurrently": {
+            "version": "9.2.0",
+            "overridden": false
+        },
+        "cookie-parser": {
+            "version": "1.4.7",
+            "overridden": false
+        },
+        "cors": {
+            "version": "2.8.5",
+            "overridden": false
+        },
+        "create-react-app": {
+            "version": "5.1.0",
+            "overridden": false
+        },
+        "dotenv": {
+            "version": "17.1.0",
+            "overridden": false
+        },
+        "expo": {
+            "version": "53.0.18",
+            "overridden": false
+        },
+        "express-formidable": {
+            "version": "1.2.0",
+            "overridden": false
+        },
+        "express-generator": {
+            "version": "4.16.1",
+            "overridden": false
+        },
+        "express-session": {
+            "version": "1.18.1",
+            "overridden": false
+        },
+        "express": {
+            "version": "5.1.0",
+            "overridden": false
+        },
+        "firebase-tools": {
+            "version": "14.9.0",
+            "overridden": false
+        },
+        "gsap": {
+            "version": "3.13.0",
+            "overridden": false
+        },
+        "html5-qrcode": {
+            "version": "2.3.8",
+            "overridden": false
+        },
+        "jquery": {
+            "version": "3.7.1",
+            "overridden": false
+        },
+        "json": {
+            "version": "11.0.0",
+            "overridden": false
+        },
+        "jsonwebtoken": {
+            "version": "9.0.2",
+            "overridden": false
+        },
+        "jwt-decode": {
+            "version": "4.0.0",
+            "overridden": false
+        },
+        "live-server": {
+            "version": "1.2.2",
+            "overridden": false
+        },
+        "lucide-react": {
+            "version": "0.525.0",
+            "overridden": false
+        },
+        "mammoth": {
+            "version": "1.11.0",
+            "overridden": false
+        },
+        "material-icons": {
+            "version": "1.13.14",
+            "overridden": false
+        },
+        "mongodb": {
+            "version": "6.17.0",
+            "overridden": false
+        },
+        "mongoose": {
+            "version": "8.16.2",
+            "overridden": false
+        },
+        "morgan": {
+            "version": "1.10.0",
+            "overridden": false
+        },
+        "multer": {
+            "version": "2.0.1",
+            "overridden": false
+        },
+        "node-php": {
+            "version": "0.0.1",
+            "overridden": false
+        },
+        "node": {
+            "version": "22.17.0",
+            "overridden": false
+        },
+        "nodemon": {
+            "version": "3.1.10",
+            "overridden": false
+        },
+        "npm-check-updates": {
+            "version": "18.0.1",
+            "overridden": false
+        },
+        "npm": {
+            "version": "11.4.2",
+            "overridden": false
+        },
+        "pdf-parse": {
+            "version": "2.1.7",
+            "overridden": false
+        },
+        "prop-types": {
+            "version": "15.8.1",
+            "overridden": false
+        },
+        "react-bootstrap": {
+            "version": "2.10.10",
+            "overridden": false
+        },
+        "react-chartjs": {
+            "version": "1.2.0",
+            "overridden": false
+        },
+        "react-dom": {
+            "version": "19.1.0",
+            "overridden": false
+        },
+        "react-helmet-async": {
+            "version": "2.0.5",
+            "overridden": false
+        },
+        "react-helmet": {
+            "version": "6.1.0",
+            "overridden": false
+        },
+        "react-icons": {
+            "version": "5.5.0",
+            "overridden": false
+        },
+        "react-redux": {
+            "version": "9.2.0",
+            "overridden": false
+        },
+        "react-router-dom": {
+            "version": "7.6.3",
+            "overridden": false
+        },
+        "react-scripts": {
+            "version": "5.0.1",
+            "overridden": false
+        },
+        "react-speech-recognition": {
+            "version": "4.0.1",
+            "overridden": false
+        },
+        "react-toastify": {
+            "version": "11.0.5",
+            "overridden": false
+        },
+        "react": {
+            "version": "19.1.0",
+            "overridden": false
+        },
+        "redux": {
+            "version": "5.0.1",
+            "overridden": false
+        },
+        "sass": {
+            "version": "1.89.2",
+            "overridden": false
+        },
+        "serve": {
+            "version": "14.2.4",
+            "overridden": false
+        },
+        "slugify": {
+            "version": "1.6.6",
+            "overridden": false
+        },
+        "socket.io": {
+            "version": "4.8.1",
+            "overridden": false
+        },
+        "sort-package-json": {
+            "version": "3.4.0",
+            "overridden": false
+        },
+        "styled-components": {
+            "version": "6.1.19",
+            "overridden": false
+        },
+        "tailwindcss": {
+            "version": "3.4.13",
+            "overridden": false
+        },
+        "three": {
+            "version": "0.182.0",
+            "overridden": false
+        },
+        "tldr": {
+            "version": "3.4.0",
+            "overridden": false
+        },
+        "tsx": {
+            "version": "4.20.3",
+            "overridden": false
+        },
+        "vite-plugin-pwa": {
+            "version": "1.0.1",
+            "overridden": false
+        },
+        "xlsx": {
+            "version": "0.18.5",
+            "overridden": false
+        }
+    }
+}

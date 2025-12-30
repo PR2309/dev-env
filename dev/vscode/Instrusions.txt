@@ -1,0 +1,62 @@
+~> To backup vscode extensions:
+    Step 0> (Restrore Backup)
+        Install VS Code
+        command (Powershell):
+            Get-Content dev/vscode/extensions.txt | ForEach-Object { code --install-extension $_ }
+
+    Step 1>
+        Create a folder named "vscode" if not exists already.
+        command:
+            mkdir vscode
+    Step 2> (Extensions backup)
+        run the command:
+            code --list-extensions > vscode/extensions.txt
+        To backup all extensions
+        To check the file (command):
+            type vscode\extensions.txt
+
+~> To backup vscode settings:
+    Step 0> (Restrore Backup)
+        Install VS Code
+        command (Powershell):
+            copy dev\vscode\settings.json $env:APPDATA\Code\User\
+
+    Step 1>
+        Create a folder named "vscode" if not exsists already
+        command:
+            mkdir vscode
+    Step 2>
+        To copy global settings.json of vscode
+        run this command:
+            copy "$env:APPDATA\Code\User\settings.json" vscode\settings.json
+
+~> To backup vscode key bindings:
+    Step 0> (Restrore Backup)
+        Install VS Code
+        command (Powershell):
+            copy dev\vscode\keybindings.json $env:APPDATA\Code\User\
+
+    Step 1>
+        Create a folder named "vscode" if not exsists already
+        command:
+            mkdir vscode
+    Step 2>
+        To copy global keybindings.json of vscode
+        run this command:
+            copy "$env:APPDATA\Code\User\keybindings.json" vscode\keybindings.json
+
+~> To backup vscode snippets:
+    Step 0> (Restrore Backup)
+        Install VS Code
+        command (Powershell):
+            copy dev\vscode\snippets\* $env:APPDATA\Code\User\snippets\
+
+    Step 1>
+        Create a folder named "vscode\snippets" if not exsists already
+        command:
+            mkdir vscode;
+            mkdir vscode\snippets
+    Step 2>
+        To copy all .json snippets of vscode
+        run this command:
+            copy "$env:APPDATA\Code\User\snippets\*" vscode\snippets\

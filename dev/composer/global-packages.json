@@ -1,0 +1,265 @@
+{
+    "installed": [
+        {
+            "name": "carbonphp/carbon-doctrine-types",
+            "direct-dependency": false,
+            "homepage": null,
+            "source": "https://github.com/CarbonPHP/carbon-doctrine-types/tree/3.2.0",
+            "version": "3.2.0",
+            "description": "Types to use Carbon in Doctrine",
+            "abandoned": false
+        },
+        {
+            "name": "doctrine/inflector",
+            "direct-dependency": false,
+            "homepage": "https://www.doctrine-project.org/projects/inflector.html",
+            "source": "https://github.com/doctrine/inflector/tree/2.0.10",
+            "version": "2.0.10",
+            "description": "PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms of words.",
+            "abandoned": false
+        },
+        {
+            "name": "illuminate/collections",
+            "direct-dependency": false,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v11.43.0",
+            "description": "The Illuminate Collections package.",
+            "abandoned": false
+        },
+        {
+            "name": "illuminate/conditionable",
+            "direct-dependency": false,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v11.43.0",
+            "description": "The Illuminate Conditionable package.",
+            "abandoned": false
+        },
+        {
+            "name": "illuminate/contracts",
+            "direct-dependency": false,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v11.43.0",
+            "description": "The Illuminate Contracts package.",
+            "abandoned": false
+        },
+        {
+            "name": "illuminate/filesystem",
+            "direct-dependency": false,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v11.43.0",
+            "description": "The Illuminate Filesystem package.",
+            "abandoned": false
+        },
+        {
+            "name": "illuminate/macroable",
+            "direct-dependency": false,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v11.43.0",
+            "description": "The Illuminate Macroable package.",
+            "abandoned": false
+        },
+        {
+            "name": "illuminate/support",
+            "direct-dependency": false,
+            "homepage": "https://laravel.com",
+            "source": "https://github.com/laravel/framework",
+            "version": "v11.43.0",
+            "description": "The Illuminate Support package.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/installer",
+            "direct-dependency": true,
+            "homepage": null,
+            "source": "https://github.com/laravel/installer/tree/v5.11.2",
+            "version": "v5.11.2",
+            "description": "Laravel application installer.",
+            "abandoned": false
+        },
+        {
+            "name": "laravel/prompts",
+            "direct-dependency": false,
+            "homepage": null,
+            "source": "https://github.com/laravel/prompts/tree/v0.3.5",
+            "version": "v0.3.5",
+            "description": "Add beautiful and user-friendly forms to your command-line applications.",
+            "abandoned": false
+        },
+        {
+            "name": "nesbot/carbon",
+            "direct-dependency": false,
+            "homepage": "https://carbon.nesbot.com",
+            "source": "https://github.com/CarbonPHP/carbon",
+            "version": "3.8.5",
+            "description": "An API extension for DateTime that supports 281 different languages.",
+            "abandoned": false
+        },
+        {
+            "name": "psr/clock",
+            "direct-dependency": false,
+            "homepage": "https://github.com/php-fig/clock",
+            "source": "https://github.com/php-fig/clock/tree/1.0.0",
+            "version": "1.0.0",
+            "description": "Common interface for reading the clock.",
+            "abandoned": false
+        },
+        {
+            "name": "psr/container",
+            "direct-dependency": false,
+            "homepage": "https://github.com/php-fig/container",
+            "source": "https://github.com/php-fig/container/tree/2.0.2",
+            "version": "2.0.2",
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "abandoned": false
+        },
+        {
+            "name": "psr/simple-cache",
+            "direct-dependency": false,
+            "homepage": null,
+            "source": "https://github.com/php-fig/simple-cache/tree/3.0.0",
+            "version": "3.0.0",
+            "description": "Common interfaces for simple caching",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/clock",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/clock/tree/v7.2.0",
+            "version": "v7.2.0",
+            "description": "Decouples applications from the system clock",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/console",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/console/tree/v7.2.1",
+            "version": "v7.2.1",
+            "description": "Eases the creation of beautiful and testable command line interfaces",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/deprecation-contracts",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/deprecation-contracts/tree/v3.5.1",
+            "version": "v3.5.1",
+            "description": "A generic function and convention to trigger deprecation notices",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/finder",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/finder/tree/v7.2.2",
+            "version": "v7.2.2",
+            "description": "Finds files and directories via an intuitive fluent interface",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/polyfill-ctype",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/polyfill-ctype/tree/v1.31.0",
+            "version": "v1.31.0",
+            "description": "Symfony polyfill for ctype functions",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/polyfill-intl-grapheme",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/polyfill-intl-grapheme/tree/v1.31.0",
+            "version": "v1.31.0",
+            "description": "Symfony polyfill for intl's grapheme_* functions",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/polyfill-intl-normalizer",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.31.0",
+            "version": "v1.31.0",
+            "description": "Symfony polyfill for intl's Normalizer class and related functions",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/polyfill-mbstring",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.31.0",
+            "version": "v1.31.0",
+            "description": "Symfony polyfill for the Mbstring extension",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/polyfill-php83",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/polyfill-php83/tree/v1.31.0",
+            "version": "v1.31.0",
+            "description": "Symfony polyfill backporting some PHP 8.3+ features to lower PHP versions",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/process",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/process/tree/v7.2.0",
+            "version": "v7.2.0",
+            "description": "Executes commands in sub-processes",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/service-contracts",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/service-contracts/tree/v3.5.1",
+            "version": "v3.5.1",
+            "description": "Generic abstractions related to writing services",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/string",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/string/tree/v7.2.0",
+            "version": "v7.2.0",
+            "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/translation",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/translation/tree/v7.2.2",
+            "version": "v7.2.2",
+            "description": "Provides tools to internationalize your application",
+            "abandoned": false
+        },
+        {
+            "name": "symfony/translation-contracts",
+            "direct-dependency": false,
+            "homepage": "https://symfony.com",
+            "source": "https://github.com/symfony/translation-contracts/tree/v3.5.1",
+            "version": "v3.5.1",
+            "description": "Generic abstractions related to translation",
+            "abandoned": false
+        },
+        {
+            "name": "voku/portable-ascii",
+            "direct-dependency": false,
+            "homepage": "https://github.com/voku/portable-ascii",
+            "source": "https://github.com/voku/portable-ascii/tree/2.0.3",
+            "version": "2.0.3",
+            "description": "Portable ASCII library - performance optimized (ascii) string functions for php.",
+            "abandoned": false
+        }
+    ]
+}

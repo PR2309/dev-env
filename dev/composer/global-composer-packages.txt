@@ -1,0 +1,29 @@
+carbonphp/carbon-doctrine-types  3.2.0   Types to use Carbon in Doctrine
+doctrine/inflector               2.0.10  PHP Doctrine Inflector is a small library that can perform string manipulations with regard to upper/lowercase and singular/plural forms o...
+illuminate/collections           11.43.0 The Illuminate Collections package.
+illuminate/conditionable         11.43.0 The Illuminate Conditionable package.
+illuminate/contracts             11.43.0 The Illuminate Contracts package.
+illuminate/filesystem            11.43.0 The Illuminate Filesystem package.
+illuminate/macroable             11.43.0 The Illuminate Macroable package.
+illuminate/support               11.43.0 The Illuminate Support package.
+laravel/installer                5.11.2  Laravel application installer.
+laravel/prompts                  0.3.5   Add beautiful and user-friendly forms to your command-line applications.
+nesbot/carbon                    3.8.5   An API extension for DateTime that supports 281 different languages.
+psr/clock                        1.0.0   Common interface for reading the clock.
+psr/container                    2.0.2   Common Container Interface (PHP FIG PSR-11)
+psr/simple-cache                 3.0.0   Common interfaces for simple caching
+symfony/clock                    7.2.0   Decouples applications from the system clock
+symfony/console                  7.2.1   Eases the creation of beautiful and testable command line interfaces
+symfony/deprecation-contracts    3.5.1   A generic function and convention to trigger deprecation notices
+symfony/finder                   7.2.2   Finds files and directories via an intuitive fluent interface
+symfony/polyfill-ctype           1.31.0  Symfony polyfill for ctype functions
+symfony/polyfill-intl-grapheme   1.31.0  Symfony polyfill for intl's grapheme_* functions
+symfony/polyfill-intl-normalizer 1.31.0  Symfony polyfill for intl's Normalizer class and related functions
+symfony/polyfill-mbstring        1.31.0  Symfony polyfill for the Mbstring extension
+symfony/polyfill-php83           1.31.0  Symfony polyfill backporting some PHP 8.3+ features to lower PHP versions
+symfony/process                  7.2.0   Executes commands in sub-processes
+symfony/service-contracts        3.5.1   Generic abstractions related to writing services
+symfony/string                   7.2.0   Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way
+symfony/translation              7.2.2   Provides tools to internationalize your application
+symfony/translation-contracts    3.5.1   Generic abstractions related to translation
+voku/portable-ascii              2.0.3   Portable ASCII library - performance optimized (ascii) string functions for php.

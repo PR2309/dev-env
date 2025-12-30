@@ -1,0 +1,20 @@
+
+~> To backup composer (PHP) packages:
+    Step 0> (Restrore Backup)
+        Install Composer
+        command:
+            composer global require $(cat dev/composer/global-composer-packages.txt | awk '{print $1}')
+        Or use restore.ps1 or restore-composer.ps1 in powwershell for windows
+        Or use restore-composer.sh for Linux or macOS
+
+    Step 1>
+        Create a folder named "composer" if not exsists already
+        command:
+            mkdir composer
+    Step 2>
+        To copy composer global packages for PHP
+        run this command:
+            - for JSON format:
+                composer global show --format=json > composer/global-packages.json
+            - for human readable format:
+                composer global show > composer/global-composer-packages.txt 

@@ -1,0 +1,84 @@
+~> To backup node current working version in the system:
+    Step 0> (Restrore Backup)
+        Install node.js of same version manually from official site
+            https://nodejs.org/en/download
+        OR install nvm from,
+            https://github.com/coreybutler/nvm-windows
+        run the file:
+            - for Windows
+                restore-node.ps1
+            - for Linux / macOS:
+                first make it executable using the command:
+                    chmod +x restore-node.sh
+                the run this file:
+                    restore-node.sh
+
+    Step 1>
+        Create a folder named "npm" if not exsists already
+        command:
+            mkdir npm
+    Step 2>
+        To copy node current working version in the system 
+        command:
+            node -v > npm/node-version.txt
+
+~> To backup npm current working version in the system:
+    Step 0> (Restrore Backup)
+        Install node.js
+        use the vaersion manually in the command:
+            npm install -g npm@<npmVersion>
+        or run the file:
+            - for Windows
+                restore-npm.ps1
+            - for Linux / macOS:
+                first make it executable using the command:
+                    chmod +x restore-npm.sh
+                the run this file:
+                    restore-npm.sh
+
+    Step 1>
+        Create a folder named "npm" if not exsists already
+        command:
+            mkdir npm
+    Step 2>
+        To copy node current working version in the system 
+        command:
+            npm -v > npm/npm-version.txt
+
+
+~> To backup npm packages:
+    Step 0> (Restrore Backup)
+        Install node.js and npm (atleast)
+        Either install each package one-by-one manually using command:
+                npm i -g <name@version>
+            OR
+                npm install -g <name@version>
+        OR use .ps1 and .sh files for automated tasks:
+            - for Windows:
+                run:
+                    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+                    restore-npm-globals.ps1
+            - for Linux / macOS:
+                Install these dependencies:
+                    sudo apt install jq     # Linux
+                    brew install jq         # macOS
+                run:
+                    chmod +x restore-npm-globals.sh
+                    restore-npm-globals.sh
+
+
+    Step 1>
+        Create a folder named "npm" if not exsists already
+        command:
+            mkdir npm
+    Step 2>
+        To copy npm global packages
+        run this command:
+            - for JSON Format:
+                npm list -g --depth=0 --json > npm/global-packages.json
+            OR
+                npm ls -g --depth=0 --json > npm/global-packages.json
+            - for human readable format:
+                npm list -g --depth=0 > npm/global-npm-packages.txt
+            OR
+                npm ls -g --depth=0 > npm/global-npm-packages.txt
