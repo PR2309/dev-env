@@ -1,0 +1,9 @@
+node_modules/       # Ignore node modules folder - Huge + OS-specific
+
+.npm/               # Ignore npm cache folder - (Cache) Can break installs
+
+site-packages/	    # Ignore Python site-packages folder - Huge + OS/Platform-specific
+
+vendor/             # Ignore (Composer) vendored dependencies - Huge + OS/Platform-specific
+
+# Any token / API key	Security risk

@@ -2,7 +2,7 @@
   "name": "npm",
   "dependencies": {
     "@angular/cli": {
-      "version": "21.0.4",
+      "version": "21.0.5",
       "overridden": false
     },
     "@fortawesome/fontawesome-free": {
@@ -250,7 +250,11 @@
       "overridden": false
     },
     "react-router-dom": {
-      "version": "7.11.0",
+      "version": "7.12.0",
+      "overridden": false
+    },
+    "react-router": {
+      "version": "7.12.0",
       "overridden": false
     },
     "react-scripts": {

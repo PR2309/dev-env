@@ -1,5 +1,5 @@
 C:\Users\LENOVO\AppData\Roaming\npm
-Γö£ΓöÇΓöÇ @angular/cli@21.0.4
+Γö£ΓöÇΓöÇ @angular/cli@21.0.5
 Γö£ΓöÇΓöÇ @fortawesome/fontawesome-free@7.1.0
 Γö£ΓöÇΓöÇ @google/generative-ai@0.24.1
 Γö£ΓöÇΓöÇ @react-oauth/google@0.13.4
@@ -61,7 +61,8 @@ C:\Users\LENOVO\AppData\Roaming\npm
 Γö£ΓöÇΓöÇ react-helmet@6.1.0
 Γö£ΓöÇΓöÇ react-icons@5.5.0
 Γö£ΓöÇΓöÇ react-redux@9.2.0
-Γö£ΓöÇΓöÇ react-router-dom@7.11.0
+Γö£ΓöÇΓöÇ react-router-dom@7.12.0
+Γö£ΓöÇΓöÇ react-router@7.12.0
 Γö£ΓöÇΓöÇ react-scripts@5.0.1
 Γö£ΓöÇΓöÇ react-speech-recognition@4.0.1
 Γö£ΓöÇΓöÇ react-toastify@11.0.5
