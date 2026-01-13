@@ -51,6 +51,7 @@ C:\Users\LENOVO\AppData\Roaming\npm
 Γö£ΓöÇΓöÇ npm-check-updates@18.0.1
 Γö£ΓöÇΓöÇ npm@11.7.0
 Γö£ΓöÇΓöÇ pdf-parse@2.4.5
+Γö£ΓöÇΓöÇ pnpm@10.28.0
 Γö£ΓöÇΓöÇ prop-types@15.8.1
 Γö£ΓöÇΓöÇ react-bootstrap@2.10.10
 Γö£ΓöÇΓöÇ react-chartjs-2@5.3.1

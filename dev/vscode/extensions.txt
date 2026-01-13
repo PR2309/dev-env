@@ -52,6 +52,7 @@ ms-vscode.cpptools
 ms-vscode.cpptools-extension-pack
 ms-vscode.cpptools-themes
 ms-vscode.live-server
+ms-vscode.powershell
 ms-vscode.remote-explorer
 ms-vscode.remote-repositories
 ms-vscode.remote-server
