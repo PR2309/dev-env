@@ -1,3 +1,9 @@
+~> Run restore file using this command:
+    Command:
+	powershell -ExecutionPolicy Bypass -File <pathOfFile>
+    Example:
+	powershell -ExecutionPolicy Bypass -File "./restore-vscode.ps1"
+
 ~> To backup vscode extensions:
     Step 0> (Restrore Backup)
         Install VS Code
@@ -60,3 +66,4 @@
         To copy all .json snippets of vscode
         run this command:
             copy "$env:APPDATA\Code\User\snippets\*" vscode\snippets\
+
