@@ -26,4 +26,4 @@ foreach ($pkg in $deps.PSObject.Properties) {
     npm install -g "$name@$version"
 }
 
-Write-Host "✅ Global npm packages restored"
+Write-Host "Global npm packages restored"

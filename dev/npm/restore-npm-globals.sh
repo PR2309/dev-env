@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-FILE="dev/npm/global-packages.json"
+FILE="npm/global-packages.json"
 
 if [ ! -f "$FILE" ]; then
-  echo "❌ global-packages.json not found"
+  echo " global-packages.json not found"
   exit 1
 fi
 
@@ -20,4 +20,4 @@ while read pkg; do
   npm install -g "$pkg"
 done
 
-echo "✅ Global npm packages restored"
+echo "Global npm packages restored"
