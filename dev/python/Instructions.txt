@@ -7,8 +7,8 @@
         If you ever use pipx, you can add:
             pipx list --json
         OR 
-            run .ps1 files for windows
-            run .sh file for Linux/macOS
+            run restore.ps1 files for windows
+            run restore.sh file for Linux/macOS
 
     Step 1>
         Create a folder named "python" if not exsists already
@@ -18,3 +18,6 @@
         To copy pip global packages for Python
         run this command:
             pip freeze > python/requirements.txt
+        OR 
+            run backuo.ps1 files for windows
+            run backup.sh file for Linux/macOS

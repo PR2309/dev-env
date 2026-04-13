@@ -7,3 +7,7 @@ site-packages/	    # Ignore Python site-packages folder - Huge + OS/Platform-spe
 vendor/             # Ignore (Composer) vendored dependencies - Huge + OS/Platform-specific
 
 # Any token / API key	Security risk
+
+temp/               # Ignore temp files - Can be large and OS-specific
+
+tempCodeRunnerFile.*  # Ignore temp files created by code runners - Can be large and OS-specific
