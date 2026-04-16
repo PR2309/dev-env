@@ -29,6 +29,7 @@ C:\Users\LENOVO\AppData\Roaming\npm
 Γö£ΓöÇΓöÇ express-generator@4.16.1
 Γö£ΓöÇΓöÇ express-session@1.18.2
 Γö£ΓöÇΓöÇ express@5.2.1
+Γö£ΓöÇΓöÇ firebase@12.9.0
 Γö£ΓöÇΓöÇ firebase-tools@15.1.0
 Γö£ΓöÇΓöÇ gh-pages@6.3.0
 Γö£ΓöÇΓöÇ gsap@3.14.2
@@ -45,11 +46,12 @@ C:\Users\LENOVO\AppData\Roaming\npm
 Γö£ΓöÇΓöÇ mongoose@9.1.1
 Γö£ΓöÇΓöÇ morgan@1.10.1
 Γö£ΓöÇΓöÇ multer@2.0.2
+Γö£ΓöÇΓöÇ netlify-cli@24.0.0
 Γö£ΓöÇΓöÇ node-php@0.0.1
 Γö£ΓöÇΓöÇ node@24.12.0
 Γö£ΓöÇΓöÇ nodemon@3.1.11
 Γö£ΓöÇΓöÇ npm-check-updates@18.0.1
-Γö£ΓöÇΓöÇ npm@11.7.0
+Γö£ΓöÇΓöÇ npm@11.12.1
 Γö£ΓöÇΓöÇ pdf-parse@2.4.5
 Γö£ΓöÇΓöÇ pnpm@10.28.0
 Γö£ΓöÇΓöÇ prop-types@15.8.1
@@ -64,6 +66,7 @@ C:\Users\LENOVO\AppData\Roaming\npm
 Γö£ΓöÇΓöÇ react-router-dom@7.12.0
 Γö£ΓöÇΓöÇ react-router@7.12.0
 Γö£ΓöÇΓöÇ react-scripts@5.0.1
+Γö£ΓöÇΓöÇ react-snowfall@2.4.0
 Γö£ΓöÇΓöÇ react-speech-recognition@4.0.1
 Γö£ΓöÇΓöÇ react-toastify@11.0.5
 Γö£ΓöÇΓöÇ react@19.2.3
