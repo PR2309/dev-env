@@ -1,0 +1,215 @@
+================================================================================
+TESTING FOLDER - Module Test Suite
+================================================================================
+
+PURPOSE:
+This folder contains the automated test infrastructure for all development 
+modules (nodejs, php, python, vscode). It provides centralized test execution,
+test case definitions, and test result storage.
+
+================================================================================
+FOLDER STRUCTURE
+================================================================================
+
+Testing/
+├── run-tests.ps1                    PowerShell test runner (Windows)
+├── run-tests.sh                     Bash test runner (Linux/Mac)
+├── Instructions.txt                 This file
+├── Modules/
+│   ├── nodejs_module_tests.json     Test cases for nodejs
+│   ├── php_module_tests.json        Test cases for php
+│   ├── python_module_tests.json     Test cases for python
+│   └── vscode_module_tests.json     Test cases for vscode
+└── Data/
+    ├── nodejs_module_results.md     Test results for nodejs
+    ├── php_module_results.md        Test results for php
+    ├── python_module_results.md     Test results for python
+    └── vscode_module_results.md     Test results for vscode
+
+================================================================================
+HOW TO RUN TESTS
+================================================================================
+
+WINDOWS (PowerShell):
+---------------------
+From the root folder (e:\Working\Learning\dev):
+
+  powershell -ExecutionPolicy ByPass -File "Testing/run-tests.ps1"
+
+Or run directly from Testing folder:
+
+  cd Testing
+  powershell -ExecutionPolicy ByPass -File "run-tests.ps1"
+
+LINUX/MAC (Bash):
+-----------------
+From the root folder:
+
+  bash Testing/run-tests.sh
+
+Or run directly:
+
+  cd Testing
+  bash run-tests.sh
+
+EXPECTED OUTPUT:
+- Lists all available modules found in the Modules folder
+- Prompts for confirmation for each module individually (y/yes or n/no)
+- For each confirmed module: runs tests and generates results
+- Results written to Testing/Data/*_module_results.md
+- Summary displayed in console with pass/fail counts for each processed module
+
+================================================================================
+HOW TO MANUALLY RUN TESTS (If Automation Fails)
+================================================================================
+
+STEP 1: Review Test Cases
+--------------------------
+Open Testing/*_module_tests.json to see what tests are defined.
+Each test contains:
+  - name: Test description
+  - category: Category (e.g., "syntax", "structure", "security")
+  - type: Check type (e.g., "pattern-match", "file-exists")
+  - target: File path to check
+  - pattern: Regex pattern to search for
+  - mustExist: Boolean (true/false)
+  - description: What the test validates
+
+STEP 2: Manual Test Examples
+-----------------------------
+
+2A. Syntax Check - Verify PowerShell scripts have valid syntax:
+  powershell -Command "Test-Path 'path/to/file.ps1' -PathType Leaf"
+
+2B. Pattern Check - Search for specific content:
+  Example: Verify backup scripts have error handling
+  Get-Content 'nodejs/Windows/backup-node.ps1' | 
+    Select-String -Pattern 'try|catch|if.*error' -AllMatches | 
+    Measure-Object | Select-Object Count
+
+2C. File Existence Check - Verify required files exist:
+  Test-Path 'nodejs/Data/node-version.txt' -PathType Leaf
+
+2D. Script Execution Test - Run a backup script and verify it completes:
+  & 'nodejs/Windows/backup-node.ps1'
+
+STEP 3: Create Custom Test Results
+-----------------------------------
+If running tests manually, create a markdown file in Testing/Data/ with format:
+
+  # NodeJS Module Test Results
+  
+  **Test Run Date:** YYYY-MM-DD HH:MM:SS
+  **Total Tests:** X
+  **Passed:** Y
+  **Failed:** Z
+  
+  ## Test Results
+  
+  ### Syntax Tests
+  - [✓] backup-node.ps1 - Valid PowerShell syntax
+  - [✗] filename.ps1 - Comment describing the failure
+  
+  ### Category Name
+  - [✓] Test description
+  - [✗] Test description
+
+================================================================================
+INTERACTIVE CONFIRMATION
+================================================================================
+
+The test runner will:
+1. Display all available modules found in Testing/Modules/
+2. Prompt you to confirm each module individually
+3. Only run tests for modules you confirm with 'y' or 'yes'
+4. Skip modules you decline with 'n' or 'no'
+
+VALID INPUTS:
+- y, yes (case-insensitive) → Run tests for this module
+- n, no (case-insensitive) → Skip this module
+- Invalid input → Reprompts until valid input is given
+
+WHY CONFIRMATION?
+- Allows selective testing of specific modules
+- Prevents accidental execution of all tests
+- Provides control over which modules to validate
+- Useful for large test suites or when focusing on specific areas
+
+Each *_module_tests.json file contains:
+- Category: Groups related tests
+- Tests: Array of test objects with properties:
+  * name: Display name
+  * type: "pattern-match" or "file-exists"
+  * target: File or folder path
+  * pattern: Regex (for pattern-match tests)
+  * mustExist: Boolean (for file-exists tests)
+  * description: What's being validated
+
+EDITING TESTS:
+If you need to add or modify tests, edit the JSON file directly in the Testing/Modules/ folder.
+Ensure valid JSON syntax (no trailing commas, proper escaping).
+
+Example test entry:
+{
+  "name": "Error Handling in Backup Script",
+  "type": "pattern-match",
+  "target": "nodejs/Windows/backup-node.ps1",
+  "pattern": "try|catch|error",
+  "description": "Backup script should include error handling"
+}
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+PROBLEM: Tests don't run
+SOLUTION:
+  1. Verify PowerShell execution policy: 
+     Get-ExecutionPolicy
+  2. If restricted, run with ByPass: 
+     powershell -ExecutionPolicy ByPass -File run-tests.ps1
+  3. Check file paths are correct in _module_tests.json
+
+PROBLEM: Tests report missing files
+SOLUTION:
+  1. Verify source files exist in module folders
+  2. Check paths in JSON don't have extra spaces/quotes
+  3. Use absolute paths if relative paths don't work
+
+PROBLEM: Pattern matching returns false results
+SOLUTION:
+  1. Review the regex pattern in the JSON
+  2. Test pattern manually: Get-Content 'file' | Select-String -Pattern 'regex'
+  3. Escape special regex characters properly
+  4. Use online regex tester to validate patterns
+
+PROBLEM: Results file not created
+SOLUTION:
+  1. Check Testing/Data/ folder exists
+  2. Verify script has write permissions to folder
+  3. Run script from correct directory
+  4. Check console output for error messages
+
+================================================================================
+INTEGRATION WITH REPORTS
+================================================================================
+
+After tests complete, reports can be generated:
+  - Testing/Data/ contains raw test results (*_module_results.md)
+  - Reports/run-reports.ps1 reads from Testing/Data/
+  - Reports/Data/ contains final formatted reports
+
+See Reports/Instructions.txt for report generation details.
+
+================================================================================
+BEST PRACTICES
+================================================================================
+
+1. Run tests regularly during development
+2. Keep test cases updated when module scripts change
+3. Review test results before generating reports
+4. Document any manual test runs in corresponding result files
+5. Commit test results to version control for history
+6. Update test patterns when validation rules change
+
+================================================================================

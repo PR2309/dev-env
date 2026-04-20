@@ -1,0 +1,257 @@
+{
+  "module": "nodejs_module",
+  "version": "1.0",
+  "description": "Comprehensive test cases for Node.js backup and restore functionality.",
+  "testCategories": {
+    "fileExistence": {
+      "description": "Verify all required backup/restore scripts exist",
+      "tests": [
+        {
+          "name": "Backup Node Script Exists",
+          "type": "fileExists",
+          "path": "backup-node.ps1"
+        },
+        {
+          "name": "Restore Node Script Exists",
+          "type": "fileExists",
+          "path": "restore-node.ps1"
+        },
+        {
+          "name": "Backup NPM Script Exists",
+          "type": "fileExists",
+          "path": "backup-npm.ps1"
+        },
+        {
+          "name": "Restore NPM Script Exists",
+          "type": "fileExists",
+          "path": "restore-npm.ps1"
+        },
+        {
+          "name": "Backup NPM Globals Script Exists",
+          "type": "fileExists",
+          "path": "backup-npm-globals.ps1"
+        },
+        {
+          "name": "Restore NPM Globals JSON Script Exists",
+          "type": "fileExists",
+          "path": "restore-npm-globals-json.ps1"
+        },
+        {
+          "name": "Restore NPM Globals Text Script Exists",
+          "type": "fileExists",
+          "path": "restore-npm-globals-text.ps1"
+        }
+      ]
+    },
+    "fileContent": {
+      "description": "Verify script files are not empty and have content",
+      "tests": [
+        {
+          "name": "Backup Scripts Are Not Empty",
+          "type": "filesNonEmpty",
+          "paths": [
+            "backup-node.ps1",
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ]
+        },
+        {
+          "name": "Restore Scripts Are Not Empty",
+          "type": "filesNonEmpty",
+          "paths": [
+            "restore-node.ps1",
+            "restore-npm.ps1",
+            "restore-npm-globals-json.ps1",
+            "restore-npm-globals-text.ps1"
+          ]
+        }
+      ]
+    },
+    "commandPresence": {
+      "description": "Verify scripts contain necessary command checks",
+      "tests": [
+        {
+          "name": "Node Version Check in Backup Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "backup-node.ps1"
+          ],
+          "pattern": "node|Get-Command"
+        },
+        {
+          "name": "NPM Command Check in Backup Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ],
+          "pattern": "npm|Get-Command"
+        },
+        {
+          "name": "Restore Scripts Validate Commands",
+          "type": "containsRegex",
+          "paths": [
+            "restore-node.ps1",
+            "restore-npm.ps1",
+            "restore-npm-globals-json.ps1",
+            "restore-npm-globals-text.ps1"
+          ],
+          "pattern": "node|npm|Get-Command"
+        }
+      ]
+    },
+    "dataValidation": {
+      "description": "Verify data file references and formats",
+      "tests": [
+        {
+          "name": "Data Directory References",
+          "type": "containsText",
+          "paths": [
+            "backup-node.ps1",
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ],
+          "text": "Data"
+        },
+        {
+          "name": "Version File References in Backup",
+          "type": "containsRegex",
+          "path": "backup-node.ps1",
+          "pattern": "node-version|version"
+        },
+        {
+          "name": "NPM Version References in Backup",
+          "type": "containsRegex",
+          "path": "backup-npm.ps1",
+          "pattern": "npm-version|version"
+        },
+        {
+          "name": "JSON Output Format Check",
+          "type": "containsRegex",
+          "paths": [
+            "backup-npm-globals.ps1",
+            "restore-npm-globals-json.ps1"
+          ],
+          "pattern": "json|JSON"
+        }
+      ]
+    },
+    "errorHandling": {
+      "description": "Verify error handling and validation logic",
+      "tests": [
+        {
+          "name": "Error Handling in Backup Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "backup-node.ps1",
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ],
+          "pattern": "Error|exit 1|Write-Error|LASTEXITCODE"
+        },
+        {
+          "name": "Error Handling in Restore Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "restore-node.ps1",
+            "restore-npm.ps1",
+            "restore-npm-globals-json.ps1",
+            "restore-npm-globals-text.ps1"
+          ],
+          "pattern": "Error|exit 1|Write-Error|LASTEXITCODE"
+        }
+      ]
+    },
+    "pathHandling": {
+      "description": "Verify correct path handling without undefined variables",
+      "tests": [
+        {
+          "name": "No Undefined $file Usage in Backup Scripts",
+          "type": "notContainsRegex",
+          "paths": [
+            "backup-node.ps1",
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ],
+          "pattern": "Split-Path\\s+\\$file\\s+-Parent"
+        },
+        {
+          "name": "Join-Path Usage in Path Construction",
+          "type": "containsRegex",
+          "paths": [
+            "backup-node.ps1",
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ],
+          "pattern": "Join-Path"
+        }
+      ]
+    },
+    "bugCheck": {
+      "description": "Verify no known bugs in scripts",
+      "tests": [
+        {
+          "name": "Restore Node Does Not Use NPM Message",
+          "type": "notContainsRegex",
+          "path": "restore-node.ps1",
+          "pattern": "NPM is already at version"
+        },
+        {
+          "name": "Restore Node Uses Correct Message",
+          "type": "containsRegex",
+          "path": "restore-node.ps1",
+          "pattern": "Node.*version|node.*version"
+        },
+        {
+          "name": "Restore NPM Does Not Enforce Strict Semver Regex",
+          "type": "notContainsRegex",
+          "path": "restore-npm.ps1",
+          "pattern": "\\^\\d\\+\\.\\d\\+\\.\\d\\+\\$"
+        }
+      ]
+    },
+    "fileStructure": {
+      "description": "Verify proper file structure and organization",
+      "tests": [
+        {
+          "name": "Backup and Restore Scripts Paired",
+          "type": "filepathConsistency",
+          "backupScripts": [
+            "backup-node.ps1",
+            "backup-npm.ps1",
+            "backup-npm-globals.ps1"
+          ],
+          "restoreScripts": [
+            "restore-node.ps1",
+            "restore-npm.ps1",
+            "restore-npm-globals-json.ps1",
+            "restore-npm-globals-text.ps1"
+          ]
+        }
+      ]
+    },
+    "outputFormats": {
+      "description": "Verify output format compatibility",
+      "tests": [
+        {
+          "name": "Global Npm Backup Has Both Text and JSON Outputs",
+          "type": "containsAllPatterns",
+          "path": "backup-npm-globals.ps1",
+          "patterns": [
+            "npm global show",
+            "json"
+          ]
+        },
+        {
+          "name": "Restore Scripts Handle Both Formats",
+          "type": "containsText",
+          "paths": [
+            "restore-npm-globals-json.ps1",
+            "restore-npm-globals-text.ps1"
+          ],
+          "text": "global"
+        }
+      ]
+    }
+  }
+}

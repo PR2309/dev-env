@@ -1,0 +1,127 @@
+﻿# Test Report: php_module
+
+## Summary
+
+- **Total Tests:** 24
+- **Passed:** 23
+- **Failed:** 1
+- **Success Rate:** 95.83%
+
+## fileExistence
+
+Verify all required backup/restore scripts exist
+
+| Test | Status | Message |
+|------|--------|---------|
+| Backup Composer Script Exists | ✅ PASS | File(s) exist. |
+| Restore Composer Script Exists | ✅ PASS | File(s) exist. |
+| Backup Composer Globals Script Exists | ✅ PASS | File(s) exist. |
+| Restore Composer JSON Script Exists | ✅ PASS | File(s) exist. |
+| Restore Composer Text Script Exists | ✅ PASS | File(s) exist. |
+
+**Category Summary:** 5 passed, 0 failed
+
+## fileContent
+
+Verify script files are not empty and have content
+
+| Test | Status | Message |
+|------|--------|---------|
+| Composer Scripts Are Not Empty | ✅ PASS | All files contain content. |
+
+**Category Summary:** 1 passed, 0 failed
+
+## commandPresence
+
+Verify scripts contain necessary command checks for PHP and Composer
+
+| Test | Status | Message |
+|------|--------|---------|
+| PHP Presence Checks Are Included | ✅ PASS | All patterns were found. |
+| Composer Command Checks Are Included | ✅ PASS | All patterns were found. |
+| Composer Version Check in Restore | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 3 passed, 0 failed
+
+## dataValidation
+
+Verify data file references and formats
+
+| Test | Status | Message |
+|------|--------|---------|
+| Data Directory References in Backup | ✅ PASS | All texts were found. |
+| Composer Packages File References | ❌ FAIL | Pattern not found in E:\Working\Learning\dev\php\Windows\backup-composer.ps1 |
+| JSON Output Format Check | ✅ PASS | All patterns were found. |
+| Text Output Format Check | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 3 passed, 1 failed
+
+## errorHandling
+
+Verify error handling and validation logic
+
+| Test | Status | Message |
+|------|--------|---------|
+| Essential Error Handling in Backup Scripts | ✅ PASS | All patterns were found. |
+| Essential Error Handling in Restore Scripts | ✅ PASS | All patterns were found. |
+| PHP Check Before Operations | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 3 passed, 0 failed
+
+## pathHandling
+
+Verify correct path handling
+
+| Test | Status | Message |
+|------|--------|---------|
+| Safe Path Construction | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 1 passed, 0 failed
+
+## globalPackageBackup
+
+Verify proper global package backup handling
+
+| Test | Status | Message |
+|------|--------|---------|
+| Composer Globals Backup Exports Both Formats | ✅ PASS | All required patterns were found. |
+| Self Update Before Backup | ✅ PASS | All patterns were found. |
+| Atomic File Operations | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 3 passed, 0 failed
+
+## restoreValidation
+
+Verify restore script validation logic
+
+| Test | Status | Message |
+|------|--------|---------|
+| JSON Restore Validates JSON Format | ✅ PASS | All patterns were found. |
+| Text Restore References Correct File | ✅ PASS | All texts were found. |
+
+**Category Summary:** 2 passed, 0 failed
+
+## overwriteProtection
+
+Verify backup overwrite protection
+
+| Test | Status | Message |
+|------|--------|---------|
+| Backup Asks Before Overwrite | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 1 passed, 0 failed
+
+## outputMessages
+
+Verify informative output messages
+
+| Test | Status | Message |
+|------|--------|---------|
+| User Feedback Messages Present | ✅ PASS | All patterns were found. |
+
+**Category Summary:** 1 passed, 0 failed
+
+---
+
+Generated: 2026-04-20 00:43:41
+

@@ -1,0 +1,260 @@
+{
+  "module": "python_module",
+  "version": "1.0",
+  "description": "Comprehensive test cases for Python backup and restore functionality.",
+  "testCategories": {
+    "fileExistence": {
+      "description": "Verify all required backup/restore scripts exist",
+      "tests": [
+        {
+          "name": "Python Backup Script Exists",
+          "type": "fileExists",
+          "path": "backup-python-globals.ps1"
+        },
+        {
+          "name": "Python Restore JSON Script Exists",
+          "type": "fileExists",
+          "path": "restore-python-globals-json.ps1"
+        },
+        {
+          "name": "Python Restore Text Script Exists",
+          "type": "fileExists",
+          "path": "restore-python-globals-text.ps1"
+        }
+      ]
+    },
+    "fileContent": {
+      "description": "Verify script files are not empty and have content",
+      "tests": [
+        {
+          "name": "Python Backup Scripts Are Not Empty",
+          "type": "filesNonEmpty",
+          "paths": [
+            "backup-python-globals.ps1",
+            "restore-python-globals-json.ps1",
+            "restore-python-globals-text.ps1"
+          ]
+        }
+      ]
+    },
+    "commandPresence": {
+      "description": "Verify scripts contain necessary command checks for Python and pip",
+      "tests": [
+        {
+          "name": "Python Presence Checks Are Included",
+          "type": "containsRegex",
+          "paths": [
+            "backup-python-globals.ps1",
+            "restore-python-globals-json.ps1",
+            "restore-python-globals-text.ps1"
+          ],
+          "pattern": "python|Get-Command"
+        },
+        {
+          "name": "Pip Command Checks Are Included",
+          "type": "containsRegex",
+          "paths": [
+            "backup-python-globals.ps1",
+            "restore-python-globals-json.ps1",
+            "restore-python-globals-text.ps1"
+          ],
+          "pattern": "pip|Get-Command"
+        }
+      ]
+    },
+    "dataValidation": {
+      "description": "Verify data file references and formats",
+      "tests": [
+        {
+          "name": "Data Directory References in Backup",
+          "type": "containsText",
+          "paths": [
+            "backup-python-globals.ps1"
+          ],
+          "text": "Data"
+        },
+        {
+          "name": "JSON Restore References requirements.json",
+          "type": "containsText",
+          "path": "restore-python-globals-json.ps1",
+          "text": "requirements.json"
+        },
+        {
+          "name": "Text Restore References requirements.txt",
+          "type": "containsText",
+          "path": "restore-python-globals-text.ps1",
+          "text": "requirements.txt"
+        },
+        {
+          "name": "Backup Creates Both JSON and Text Formats",
+          "type": "containsAllPatterns",
+          "path": "backup-python-globals.ps1",
+          "patterns": [
+            "requirements\\.json",
+            "requirements\\.txt"
+          ]
+        }
+      ]
+    },
+    "pipOperations": {
+      "description": "Verify proper pip operations and commands",
+      "tests": [
+        {
+          "name": "Pip Freeze Command for Text Backup",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "pip freeze|pip.*freeze"
+        },
+        {
+          "name": "Pip List Command for JSON Output",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "pip list"
+        },
+        {
+          "name": "Pip Install Command in Restore Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "restore-python-globals-json.ps1",
+            "restore-python-globals-text.ps1"
+          ],
+          "pattern": "pip install"
+        }
+      ]
+    },
+    "errorHandling": {
+      "description": "Verify error handling and validation logic",
+      "tests": [
+        {
+          "name": "Error Handling in Backup Script",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "Error|exit 1|Write-Error|LASTEXITCODE"
+        },
+        {
+          "name": "Error Handling in Restore Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "restore-python-globals-json.ps1",
+            "restore-python-globals-text.ps1"
+          ],
+          "pattern": "Error|exit 1|Write-Error|LASTEXITCODE"
+        },
+        {
+          "name": "Python Check Before Operations",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "python.*ErrorAction|Get-Command.*python"
+        },
+        {
+          "name": "Pip Check Before Operations",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "pip.*ErrorAction|Get-Command.*pip"
+        }
+      ]
+    },
+    "pathHandling": {
+      "description": "Verify correct path handling",
+      "tests": [
+        {
+          "name": "Safe Path Construction",
+          "type": "containsRegex",
+          "paths": [
+            "backup-python-globals.ps1"
+          ],
+          "pattern": "Join-Path|PSScriptRoot|Split-Path"
+        },
+        {
+          "name": "Directory Existence Check",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "Test-Path|New-Item"
+        }
+      ]
+    },
+    "versionManagement": {
+      "description": "Verify pip and dependencies upgrade management",
+      "tests": [
+        {
+          "name": "Pip Self Upgrade in Backup",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "pip.*upgrade|--upgrade"
+        },
+        {
+          "name": "Setuptools and Wheel Include",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "setuptools|wheel"
+        }
+      ]
+    },
+    "jsonHandling": {
+      "description": "Verify proper JSON format handling",
+      "tests": [
+        {
+          "name": "JSON Restore Parses JSON Format",
+          "type": "containsRegex",
+          "path": "restore-python-globals-json.ps1",
+          "pattern": "ConvertFrom-Json|json|JSON"
+        },
+        {
+          "name": "JSON Restore Validates Package Names",
+          "type": "containsRegex",
+          "path": "restore-python-globals-json.ps1",
+          "pattern": "name|version"
+        }
+      ]
+    },
+    "overwriteProtection": {
+      "description": "Verify backup overwrite protection",
+      "tests": [
+        {
+          "name": "Backup Asks Before Overwrite",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "Read-Host|Overwrite|confirm"
+        }
+      ]
+    },
+    "outputMessages": {
+      "description": "Verify informative output messages",
+      "tests": [
+        {
+          "name": "User Feedback Messages Present",
+          "type": "containsRegex",
+          "paths": [
+            "backup-python-globals.ps1",
+            "restore-python-globals-json.ps1",
+            "restore-python-globals-text.ps1"
+          ],
+          "pattern": "Write-Host|Write-Error"
+        },
+        {
+          "name": "Progress Indicators",
+          "type": "containsRegex",
+          "path": "backup-python-globals.ps1",
+          "pattern": "Write-Host|Storing|Backing up|upgrading"
+        }
+      ]
+    },
+    "fileNaming": {
+      "description": "Verify consistent file naming conventions",
+      "tests": [
+        {
+          "name": "JSON Restore File Named Consistently",
+          "type": "containsRegex",
+          "path": "restore-python-globals-json.ps1",
+          "pattern": "json\\b"
+        },
+        {
+          "name": "Text Restore File Named Consistently",
+          "type": "containsRegex",
+          "path": "restore-python-globals-text.ps1",
+          "pattern": "text\\b|txt\\b"
+        }
+      ]
+    }
+  }
+}

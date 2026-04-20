@@ -1,0 +1,144 @@
+{
+  "module": "vscode_module",
+  "version": "1.0",
+  "description": "Comprehensive test cases for VSCode backup and restore functionality.",
+  "testCategories": {
+    "fileExistence": {
+      "description": "Verify all required backup/restore scripts exist",
+      "tests": [
+        {
+          "name": "Backup VSCode Script Exists (PowerShell)",
+          "type": "fileExists",
+          "path": "backup-vscode.ps1"
+        },
+        {
+          "name": "Restore VSCode Script Exists (PowerShell)",
+          "type": "fileExists",
+          "path": "restore-vscode.ps1"
+        },
+        {
+          "name": "Backup VSCode Script Exists (Bash)",
+          "type": "fileExists",
+          "path": "backup-vscode.sh"
+        },
+        {
+          "name": "Restore VSCode Script Exists (Bash)",
+          "type": "fileExists",
+          "path": "restore-vscode.sh"
+        }
+      ]
+    },
+    "fileContent": {
+      "description": "Verify script files are not empty and have content",
+      "tests": [
+        {
+          "name": "VSCode Scripts Are Not Empty",
+          "type": "filesNonEmpty",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ]
+        }
+      ]
+    },
+    "dataReferences": {
+      "description": "Verify data directory references for extensions and settings",
+      "tests": [
+        {
+          "name": "Data Directory References in Backup",
+          "type": "containsText",
+          "paths": [
+            "backup-vscode.ps1"
+          ],
+          "text": "Data"
+        },
+        {
+          "name": "Extensions File References",
+          "type": "containsRegex",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ],
+          "pattern": "extensions"
+        },
+        {
+          "name": "Settings File References",
+          "type": "containsRegex",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ],
+          "pattern": "settings"
+        },
+        {
+          "name": "Keybindings File References",
+          "type": "containsRegex",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ],
+          "pattern": "keybindings"
+        }
+      ]
+    },
+    "commandPresence": {
+      "description": "Verify proper command structure and execution",
+      "tests": [
+        {
+          "name": "Code Command Check in Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ],
+          "pattern": "code|Get-Command"
+        }
+      ]
+    },
+    "errorHandling": {
+      "description": "Verify error handling and validation logic",
+      "tests": [
+        {
+          "name": "Error Handling in Backup Script",
+          "type": "containsRegex",
+          "path": "backup-vscode.ps1",
+          "pattern": "Error|exit 1|Write-Error"
+        },
+        {
+          "name": "Error Handling in Restore Script",
+          "type": "containsRegex",
+          "path": "restore-vscode.ps1",
+          "pattern": "Error|exit 1|Write-Error"
+        }
+      ]
+    },
+    "pathHandling": {
+      "description": "Verify safe path handling",
+      "tests": [
+        {
+          "name": "Safe Path Construction",
+          "type": "containsRegex",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ],
+          "pattern": "Join-Path|PSScriptRoot|AppData"
+        }
+      ]
+    },
+    "sniptetHandling": {
+      "description": "Verify snippet files are handled properly",
+      "tests": [
+        {
+          "name": "Snippets Directory References",
+          "type": "containsRegex",
+          "paths": [
+            "backup-vscode.ps1",
+            "restore-vscode.ps1"
+          ],
+          "pattern": "snippets"
+        }
+      ]
+    }
+  }
+}

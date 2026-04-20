@@ -1,0 +1,249 @@
+{
+  "module": "php_module",
+  "version": "1.0",
+  "description": "Comprehensive test cases for PHP backup and restore functionality.",
+  "testCategories": {
+    "fileExistence": {
+      "description": "Verify all required backup/restore scripts exist",
+      "tests": [
+        {
+          "name": "Backup Composer Script Exists",
+          "type": "fileExists",
+          "path": "backup-composer.ps1"
+        },
+        {
+          "name": "Restore Composer Script Exists",
+          "type": "fileExists",
+          "path": "restore-composer.ps1"
+        },
+        {
+          "name": "Backup Composer Globals Script Exists",
+          "type": "fileExists",
+          "path": "backup-composer-globals.ps1"
+        },
+        {
+          "name": "Restore Composer JSON Script Exists",
+          "type": "fileExists",
+          "path": "restoreComposerJSON.ps1"
+        },
+        {
+          "name": "Restore Composer Text Script Exists",
+          "type": "fileExists",
+          "path": "restoreComposerText.ps1"
+        }
+      ]
+    },
+    "fileContent": {
+      "description": "Verify script files are not empty and have content",
+      "tests": [
+        {
+          "name": "Composer Scripts Are Not Empty",
+          "type": "filesNonEmpty",
+          "paths": [
+            "backup-composer.ps1",
+            "restore-composer.ps1",
+            "backup-composer-globals.ps1",
+            "restoreComposerJSON.ps1",
+            "restoreComposerText.ps1"
+          ]
+        }
+      ]
+    },
+    "commandPresence": {
+      "description": "Verify scripts contain necessary command checks for PHP and Composer",
+      "tests": [
+        {
+          "name": "PHP Presence Checks Are Included",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "restore-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "php|Get-Command"
+        },
+        {
+          "name": "Composer Command Checks Are Included",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "restore-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "composer|Get-Command"
+        },
+        {
+          "name": "Composer Version Check in Restore",
+          "type": "containsRegex",
+          "paths": [
+            "restoreComposerJSON.ps1",
+            "restoreComposerText.ps1"
+          ],
+          "pattern": "composer"
+        }
+      ]
+    },
+    "dataValidation": {
+      "description": "Verify data file references and formats",
+      "tests": [
+        {
+          "name": "Data Directory References in Backup",
+          "type": "containsText",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "text": "Data"
+        },
+        {
+          "name": "Composer Packages File References",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "composer-packages|packages\\.(txt|json)"
+        },
+        {
+          "name": "JSON Output Format Check",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer-globals.ps1",
+            "restoreComposerJSON.ps1"
+          ],
+          "pattern": "json|JSON"
+        },
+        {
+          "name": "Text Output Format Check",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer-globals.ps1",
+            "restoreComposerText.ps1"
+          ],
+          "pattern": "txt|text"
+        }
+      ]
+    },
+    "errorHandling": {
+      "description": "Verify error handling and validation logic",
+      "tests": [
+        {
+          "name": "Essential Error Handling in Backup Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "Error|exit 1|Write-Error|LASTEXITCODE"
+        },
+        {
+          "name": "Essential Error Handling in Restore Scripts",
+          "type": "containsRegex",
+          "paths": [
+            "restoreComposerJSON.ps1",
+            "restoreComposerText.ps1"
+          ],
+          "pattern": "Error|exit 1|Write-Error|LASTEXITCODE"
+        },
+        {
+          "name": "PHP Check Before Operations",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "php.*ErrorAction|Get-Command.*php"
+        }
+      ]
+    },
+    "pathHandling": {
+      "description": "Verify correct path handling",
+      "tests": [
+        {
+          "name": "Safe Path Construction",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "Join-Path|PSScriptRoot"
+        }
+      ]
+    },
+    "globalPackageBackup": {
+      "description": "Verify proper global package backup handling",
+      "tests": [
+        {
+          "name": "Composer Globals Backup Exports Both Formats",
+          "type": "containsAllPatterns",
+          "path": "backup-composer-globals.ps1",
+          "patterns": [
+            "composer global show",
+            "json"
+          ]
+        },
+        {
+          "name": "Self Update Before Backup",
+          "type": "containsRegex",
+          "path": "backup-composer-globals.ps1",
+          "pattern": "self-update|composer update"
+        },
+        {
+          "name": "Atomic File Operations",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "temp|Move-Item|atomic"
+        }
+      ]
+    },
+    "restoreValidation": {
+      "description": "Verify restore script validation logic",
+      "tests": [
+        {
+          "name": "JSON Restore Validates JSON Format",
+          "type": "containsRegex",
+          "path": "restoreComposerJSON.ps1",
+          "pattern": "json|JSON|ConvertFrom"
+        },
+        {
+          "name": "Text Restore References Correct File",
+          "type": "containsText",
+          "path": "restoreComposerText.ps1",
+          "text": "txt"
+        }
+      ]
+    },
+    "overwriteProtection": {
+      "description": "Verify backup overwrite protection",
+      "tests": [
+        {
+          "name": "Backup Asks Before Overwrite",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1"
+          ],
+          "pattern": "Read-Host|Overwrite|confirm"
+        }
+      ]
+    },
+    "outputMessages": {
+      "description": "Verify informative output messages",
+      "tests": [
+        {
+          "name": "User Feedback Messages Present",
+          "type": "containsRegex",
+          "paths": [
+            "backup-composer.ps1",
+            "backup-composer-globals.ps1",
+            "restoreComposerJSON.ps1",
+            "restoreComposerText.ps1"
+          ],
+          "pattern": "Write-Host|Write-Error"
+        }
+      ]
+    }
+  }
+}
