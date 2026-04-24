@@ -97,6 +97,7 @@ function Find-DevFolder {
 }
 
 $DevRoot = Find-DevFolder
+$RootDir = Split-Path $DevRoot -Parent
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $TestRoot = $ScriptDir
 $DataRoot = Join-Path $TestRoot "Data"
@@ -305,7 +306,8 @@ function Generate-MarkdownReport {
     $report += "Generated: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
     $report += ""
 
-    $report -join "`n" | Out-File -FilePath $OutputPath -Encoding UTF8
+    $reportContent = $report -join "`n"
+    $reportContent | Out-File -FilePath $OutputPath -Encoding UTF8
     Write-Host "Test report generated: $OutputPath" -ForegroundColor Green
 }
 
@@ -380,6 +382,8 @@ foreach ($testFile in $testFiles) {
         Join-Path $DevRoot "python/Windows"
     } elseif ($moduleName -like "*vscode*") {
         Join-Path $DevRoot "vscode/Windows"
+    } elseif ($moduleName -eq 'core') {
+        Join-Path $DevRoot "core"
     } else {
         Write-Host "Skipping unknown module: $moduleName" -ForegroundColor Yellow
         continue

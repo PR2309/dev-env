@@ -1,7 +1,9 @@
 ﻿# python Script Audit Report
 
 ## Reviewed Files
-
+- E:\Working\Learning\dev-env\python\Windows\backup-python-globals.ps1 - MISSING
+- E:\Working\Learning\dev-env\python\Windows\restore-python-globals-json.ps1 - MISSING
+- E:\Working\Learning\dev-env\python\Windows\restore-python-globals-text.ps1 - MISSING
 
 ## Static Code Analysis
 
@@ -173,4 +175,4 @@ Generated: 2026-04-20 00:43:41
 
 ---
 
-*Report generated on 2026-04-20 01:50:48*
+*Report generated on 2026-04-24 22:46:37*

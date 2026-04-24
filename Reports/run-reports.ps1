@@ -98,9 +98,10 @@ function Find-DevFolder {
 }
 
 $DevRoot = Find-DevFolder
+$RootDir = Split-Path $DevRoot -Parent
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 $ReportRoot = Join-Path $ScriptDir 'Data'
-$TestDataRoot = Join-Path $DevRoot 'Testing/Data'
+$TestDataRoot2 = Join-Path $RootDir 'Testing/Data'
 
 if (-not (Test-Path $ReportRoot)) {
     New-Item -ItemType Directory -Path $ReportRoot | Out-Null
@@ -143,7 +144,7 @@ function Get-TestResults {
         [string]$ModuleName
     )
 
-    $testResultFile = Join-Path $TestDataRoot "${ModuleName}_module_results.md"
+    $testResultFile = Join-Path $TestDataRoot2 "${ModuleName}_module_results.md"
     
     if (Test-Path $testResultFile) {
         try {
@@ -294,7 +295,8 @@ $modules = @(
     @{ Name = 'nodejs'; Folder = 'nodejs/Windows'; Files = @('backup-node.ps1','backup-npm.ps1','backup-npm-globals.ps1','restore-node.ps1','restore-npm.ps1','restore-npm-globals-json.ps1','restore-npm-globals-text.ps1'); Inspector = ${function:Inspect-NodejsIssues} },
     @{ Name = 'php'; Folder = 'php/Windows'; Files = @('backup-composer.ps1','backup-composer-globals.ps1','restore-composer.ps1','restoreComposerJSON.ps1','restoreComposerText.ps1'); Inspector = ${function:Inspect-PhpIssues} },
     @{ Name = 'python'; Folder = 'python/Windows'; Files = @('backup-python-globals.ps1','restore-python-globals-json.ps1','restore-python-globals-text.ps1'); Inspector = ${function:Inspect-PythonIssues} },
-    @{ Name = 'vscode'; Folder = 'vscode/Windows'; Files = @('backup-vscode.ps1','restore-vscode.ps1'); Inspector = ${function:Inspect-VscodeIssues} }
+    @{ Name = 'vscode'; Folder = 'vscode/Windows'; Files = @('backup-vscode.ps1','restore-vscode.ps1'); Inspector = ${function:Inspect-VscodeIssues} },
+    @{ Name = 'core'; Folder = 'core'; Files = @('backupAll.ps1','restoreAll.ps1'); Inspector = $null }
 )
 
 Write-Host "Starting report generation..." -ForegroundColor Cyan

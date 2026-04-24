@@ -100,6 +100,8 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
+ROOT_DIR="$(dirname "$DEV_ROOT")"
+
 TEST_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DATA_ROOT="$TEST_ROOT/Data"
 MODULES_ROOT="$TEST_ROOT/Modules"
@@ -226,28 +228,30 @@ generate_markdown_report() {
     local failed_tests=$(echo "$results_json" | jq '.failedTests')
     local success_rate=$(awk "BEGIN {printf \"%.2f\", ($passed_tests/$total_tests)*100}")
 
-    {
-        echo "# Test Report: $module_name"
-        echo ""
-        echo "## Summary"
-        echo ""
-        echo "- **Total Tests:** $total_tests"
-        echo "- **Passed:** $passed_tests"
-        echo "- **Failed:** $failed_tests"
-        echo "- **Success Rate:** $success_rate%"
-        echo ""
+    local report_content
+    report_content=$(cat <<EOF
+# Test Report: $module_name
 
-        echo "$results_json" | jq -r '.categories[] | 
-            "## \(.name)\n\n\(.description)\n\n| Test | Status | Message |\n|------|--------|--------|\n" +
-            (.tests | map("| \(.name) | \(if .passed then "✅ PASS" else "❌ FAIL" end) | \(.message | gsub("|"; "\\|")) |") | join("\n")) +
-            "\n\n**Category Summary:** \(.passed) passed, \(.failed) failed\n"' >> "$output_path"
+## Summary
 
-        echo "" >> "$output_path"
-        echo "---" >> "$output_path"
-        echo "" >> "$output_path"
-        echo "Generated: $(date '+%Y-%m-%d %H:%M:%S')" >> "$output_path"
-        echo "" >> "$output_path"
-    } > "$output_path"
+- **Total Tests:** $total_tests
+- **Passed:** $passed_tests
+- **Failed:** $failed_tests
+- **Success Rate:** $success_rate%
+
+$(echo "$results_json" | jq -r '.categories[] | 
+    "## \(.name)\n\n\(.description)\n\n| Test | Status | Message |\n|------|--------|--------|\n" +
+    (.tests | map("| \(.name) | \(if .passed then "✅ PASS" else "❌ FAIL" end) | \(.message | gsub("|"; "\\|")) |") | join("\n")) +
+    "\n\n**Category Summary:** \(.passed) passed, \(.failed) failed\n"')
+
+---
+
+Generated: $(date '+%Y-%m-%d %H:%M:%S')
+EOF
+)
+
+    echo "$report_content" > "$output_path"
+    echo "Test report generated: $output_path"
 }
 
 # Function to get user confirmation with validation
@@ -342,6 +346,8 @@ for test_file in "$MODULES_ROOT"/*_module_tests.json; do
         module_path="$DEV_ROOT/python/Linux"
     elif [[ "$module_name" == *"vscode"* ]]; then
         module_path="$DEV_ROOT/vscode/Linux"
+    elif [[ "$module_name" == "core" ]]; then
+        module_path="$DEV_ROOT/core"
     else
         echo "Skipping unknown module: $module_name"
         continue

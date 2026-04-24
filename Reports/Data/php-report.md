@@ -1,7 +1,11 @@
 ﻿# php Script Audit Report
 
 ## Reviewed Files
-
+- E:\Working\Learning\dev-env\php\Windows\backup-composer.ps1 - MISSING
+- E:\Working\Learning\dev-env\php\Windows\backup-composer-globals.ps1 - MISSING
+- E:\Working\Learning\dev-env\php\Windows\restore-composer.ps1 - MISSING
+- E:\Working\Learning\dev-env\php\Windows\restoreComposerJSON.ps1 - MISSING
+- E:\Working\Learning\dev-env\php\Windows\restoreComposerText.ps1 - MISSING
 
 ## Static Code Analysis
 
@@ -151,4 +155,4 @@ Generated: 2026-04-20 00:43:41
 
 ---
 
-*Report generated on 2026-04-20 01:50:48*
+*Report generated on 2026-04-24 22:46:37*

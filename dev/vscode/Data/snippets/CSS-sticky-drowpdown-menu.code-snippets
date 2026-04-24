@@ -1,0 +1,86 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	"Custom CSS Boilerplate for sticky dorpdown menu button CSS Styles": {
+		"prefix": "css-sticky-drowpdown",
+		"body": [
+			"/* #idBtn is for \"button + ul\"  button and #id list is for the drowpdown \"ul > li > a\" list */",
+			"#idBtn{",
+				"position: fixed;",
+				"z-index: 1;",
+				"border-radius: 10rem 0 0 10rem;",
+				"text-decoration: none;",
+				"color: white;",
+				"background-image: radial-gradient(rgba(141, 139, 139, 0.763), rgba(207, 207, 207, 0.763));",
+				"padding: 0.9rem 1.1rem;",
+				"top: 40px;",
+				"right: 4vw;",
+				"cursor: pointer;",
+				"transition: all 0.5s ease-in-out;",
+				"transform-origin: right;",
+				"margin-top:0.2rem;",
+				"font-weight:bold;",
+				"border-radius: 10rem;",
+				"font-size: 1.2rem;",
+				"border: none;",
+			"}",
+			"#idBtn:hover, #idBtn:focus {",
+				"background-image: radial-gradient(rgba(0, 255, 255, 0.605), rgba(0, 191, 255, 0.605));",
+			"}",
+			"#idBtn:hover {",
+				"z-index:2;",
+				"margin-top:0rem;",
+				"padding: 1.1rem 1.3rem;",
+				"box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.811);",
+				"/* transform: scale(1.05); */",
+			"}",
+			"#idList {",
+				"position:fixed;",
+				"top:100px;",
+				"right:4vw;",
+				"margin:0;",
+				"padding: 0;",
+				"max-width:fit-content;",
+				"border-radius: 15px;",
+				"background-color: rgba(255, 255, 255, 0.8);",
+				"box-shadow: 0 4px 12px rgba(0,0,0,0.2);",
+				"overflow: auto;",
+				"z-index:5;",
+				"display:none;",
+				"max-height: 50vh;",
+			"}",
+			"#idBtn:hover + #idList,",
+			"#idBtn:focus + #idList,",
+			"#idList:hover {",
+				"display:block;",
+			"}",
+			"#idList li a {",
+				"display: block;",
+				"padding: 12px 16px;",
+				"color:#222;",
+				"text-decoration: none;",
+				"font-size: 0.95em;",
+				"transition: all 0.3s ease-in-out;",
+			"}",
+			"#idList li a:hover {",
+				"background-color: hsl(197, 100%, 50%,0.3);",
+				"color: #000000;",
+			"}",
+		],
+		"description": "Custom CSS Boilerplate for sticky dorpdown menu button CSS Styles"
+	}
+}

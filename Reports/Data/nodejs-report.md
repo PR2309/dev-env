@@ -1,7 +1,13 @@
 ﻿# nodejs Script Audit Report
 
 ## Reviewed Files
-
+- E:\Working\Learning\dev-env\nodejs\Windows\backup-node.ps1 - MISSING
+- E:\Working\Learning\dev-env\nodejs\Windows\backup-npm.ps1 - MISSING
+- E:\Working\Learning\dev-env\nodejs\Windows\backup-npm-globals.ps1 - MISSING
+- E:\Working\Learning\dev-env\nodejs\Windows\restore-node.ps1 - MISSING
+- E:\Working\Learning\dev-env\nodejs\Windows\restore-npm.ps1 - MISSING
+- E:\Working\Learning\dev-env\nodejs\Windows\restore-npm-globals-json.ps1 - MISSING
+- E:\Working\Learning\dev-env\nodejs\Windows\restore-npm-globals-text.ps1 - MISSING
 
 ## Static Code Analysis
 
@@ -144,4 +150,4 @@ Generated: 2026-04-20 01:49:57
 
 ---
 
-*Report generated on 2026-04-20 01:50:48*
+*Report generated on 2026-04-24 22:46:37*

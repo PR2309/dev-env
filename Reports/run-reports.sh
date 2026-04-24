@@ -101,9 +101,11 @@ if [[ $? -ne 0 ]]; then
     exit 1
 fi
 
+ROOT_DIR="$(dirname "$DEV_ROOT")"
+
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPORT_ROOT="$SCRIPT_DIR/Data"
-TEST_DATA_ROOT="$DEV_ROOT/Testing/Data"
+TEST_DATA_ROOT="$ROOT_DIR/Testing/Data"
 
 # Ensure Data directory exists
 mkdir -p "$REPORT_ROOT"
@@ -165,6 +167,7 @@ declare -A modules_name=(
     [php]="php"
     [python]="python"
     [vscode]="vscode"
+    [core]="core"
 )
 
 declare -A modules_folder=(
@@ -172,6 +175,7 @@ declare -A modules_folder=(
     [php]="php/Linux"
     [python]="python/Linux"
     [vscode]="vscode/Linux"
+    [core]="core"
 )
 
 echo "Starting report generation..."
@@ -205,6 +209,9 @@ for module_key in "${!modules_name[@]}"; do
             ;;
         vscode)
             files=("backup-vscode.sh" "restore-vscode.sh")
+            ;;
+        core)
+            files=("backupAll.sh" "restoreAll.sh")
             ;;
     esac
     

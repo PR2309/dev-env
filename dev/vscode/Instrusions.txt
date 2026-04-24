@@ -66,4 +66,3 @@
         To copy all .json snippets of vscode
         run this command:
             copy "$env:APPDATA\Code\User\snippets\*" vscode\snippets\
-
