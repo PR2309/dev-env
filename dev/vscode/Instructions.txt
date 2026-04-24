@@ -66,3 +66,25 @@
         To copy all .json snippets of vscode
         run this command:
             copy "$env:APPDATA\Code\User\snippets\*" vscode\snippets\
+
+~> To backup vscode current working version in the system:
+    Step 0> (Restore Backup)
+        Install VS Code of same version manually from official site
+            https://code.visualstudio.com/download
+        OR run the restore script:
+            - for Windows
+                restore-vscode-version.ps1
+            - for Linux / macOS:
+                first make it executable using the command:
+                    chmod +x restore-vscode-version.sh
+                then run this file:
+                    ./restore-vscode-version.sh
+
+    Step 1>
+        Create a folder named "vscode" if not exists already
+        command:
+            mkdir vscode
+    Step 2>
+        To copy vscode current working version in the system
+        command:
+            code --version > vscode/vscode-version.txt

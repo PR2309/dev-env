@@ -70,6 +70,9 @@ if (-not (Get-Command code -ErrorAction SilentlyContinue)) {
     exit 1
 }
 
+# Start VS Code to ensure it's running for extension installation
+& code
+
 $extensionsFile = Join-Path $DataRoot "extensions.txt"
 $settingsFile = Join-Path $DataRoot "settings.json"
 $keybindingsFile = Join-Path $DataRoot "keybindings.json"

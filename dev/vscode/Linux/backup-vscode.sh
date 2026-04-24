@@ -2,6 +2,12 @@
 
 echo "Backing up VS Code configuration..."
 
+# Check VS Code
+if ! command -v code >/dev/null 2>&1; then
+    echo "VS Code not found. Install VS Code first."
+    exit 1
+fi
+
 # Find the data folder dynamically (works from any location)
 find_vscode_data_folder() {
     local current_path
