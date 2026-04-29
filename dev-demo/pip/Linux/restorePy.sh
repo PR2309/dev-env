@@ -55,7 +55,7 @@ done < "$REQ_FILE"
 echo "\nFailed Packages:"
 
 if [ -z "$FAILED" ]; then
-  echo "None 🎉"
+  echo "None"
 else
   printf "$FAILED\n"
 fi

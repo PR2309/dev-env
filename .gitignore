@@ -11,3 +11,8 @@ vendor/             # Ignore (Composer) vendored dependencies - Huge + OS/Platfo
 temp/               # Ignore temp files - Can be large and OS-specific
 
 tempCodeRunnerFile.*  # Ignore temp files created by code runners - Can be large and OS-specific
+
+node_modules/
+__pycache__/
+dist/
+.env

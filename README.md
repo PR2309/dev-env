@@ -25,22 +25,23 @@ It works as a **local dev environment manager and orchestration system**.
     dev-env/
     │
     ├── dev/
-    │   ├── core/                 # CLI orchestrator (backup/restore/test all modules)
-    │   ├── vscode/              # VS Code module
-    │   ├── nodejs/             # Node.js & npm module
-    │   ├── python/             # Python module
-    │   ├── php/                # PHP & Composer module
-    │   └── ...                 # Future modules
+    │   ├── core/                           # CLI orchestrator (backup/restore/test all modules)
+    │   ├── vscode/                         # VS Code module
+    │   ├── nodejs/                         # Node.js & npm module
+    │   ├── python/                         # Python module
+    │   ├── php/                            # PHP & Composer module
+    │   └── ...                             # Future modules
     │
-    ├── Reports/                # Auto-generated markdown reports
-    ├── Testing/                # Test cases & execution results
+    ├── Reports/                            # Auto-generated markdown reports
+    ├── Testing/                            # Test cases & execution results
     │
     ├── README.md
     ├── LICENSE
     ├── .gitignore
-    ├── report.pdf              # Seminar / documentation report
-    ├── ppt.pptx                # Presentation file
-    └── .git/                   # Git metadata
+    ├── DevEnv Report.pdf                   # Seminar / documentation report
+    ├── DevEnv Report.docx                  # Report Word file
+    ├── DevEnv Manager Presentation.pptx    # Presentation file
+    └── .git/                               # Git metadata
 
 ```
 
@@ -64,7 +65,7 @@ Each tool is structured as an independent module:
 - VS Code (extensions, settings, snippets, keybindings)
 - Node.js (versions, global packages)
 - Python (pip packages, environments)
-- PHP (Composer packages)
+- PHP (Composer version, Composer packages)
 
 Each module supports:
 - Windows (`.ps1`)
@@ -181,7 +182,7 @@ Built as part of a **Development Environment Manager (dev-env)** framework proje
 To use this project, first clone the repository:
 
 ```bash
-git clone https://github.com/your-username/dev-env.git
+git clone https://github.com/PR2309/dev-env.git
 ```
 
 Then navigate into the project directory:
